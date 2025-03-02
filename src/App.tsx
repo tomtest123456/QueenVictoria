@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from '@emotion/styled';
 import { motion, AnimatePresence } from 'framer-motion';
-import useSound from 'use-sound';
 import Confetti from 'react-confetti';
 
 // Enhanced styled components
@@ -174,7 +173,7 @@ const App: React.FC = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [reasons.length]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -382,26 +381,24 @@ const App: React.FC = () => {
                 Redeemable anytime, anywhere! 💋
               </motion.p>
               {canClaimKiss && (
-                <>
-                  <Button
-                    onClick={handleClaimKiss}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    Claim Your Kiss 💋
-                  </Button>
-                  <Button
-                    onClick={handleBenjiKissRequest}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    style={{ background: 'linear-gradient(135deg, #4CAF50, #8BC34A)' }}
-                  >
-                    Request a Kiss from Benji 🐕
-                  </Button>
-                </>
+                <Button
+                  onClick={handleClaimKiss}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  Claim Your Kiss 💋
+                </Button>
               )}
             </>
           )}
+          <Button
+            onClick={handleBenjiKissRequest}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            style={{ background: 'linear-gradient(135deg, #4CAF50, #8BC34A)' }}
+          >
+            Request a Kiss from Benji ��
+          </Button>
         </Card>
       </Section>
     </AppContainer>
